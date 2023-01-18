@@ -1,0 +1,12 @@
+const express = require('express');
+const app = express();
+const cors = require('cors');
+
+app.use(express.json());
+app.use(cors());
+
+app.use('/auth', require('./routes/jwtAuth'));
+app.use('/dashboard', require('./routes/dashboard'));
+app.listen(5001, () => {
+    console.log('server is listening to port 5001');
+});
